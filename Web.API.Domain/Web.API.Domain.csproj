@@ -1,12 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Web.API.Domain\Web.API.Domain.csproj" />
+    <ProjectReference Include="..\Web.API.Infrastructure\Web.API.Infrastructure.csproj" />
   </ItemGroup>
-
 
 </Project>
