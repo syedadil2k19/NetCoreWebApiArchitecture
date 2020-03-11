@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web.API.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Web.API.Domain.Entity.BaseEntity">
+            <summary>Serves as base for all data models.</summary>
+        </member>
+        <member name="P:Web.API.Domain.Entity.BaseEntity.Id">
+            <summary>Represents the primary key for data models derived from <see cref="T:Web.API.Domain.Entity.BaseEntity"/></summary>
+            <value>Property <c>Id</c> represents an entity's primary key</value>
+        </member>
+        <member name="P:Web.API.Domain.Entity.BaseEntity.Created">
+            <summary>Denotes the date and time of creation of the entity.</summary>
+            <value>Timestamp of creation of the entity.</value>
+            <remarks>Value must be set manually using approaches like auditing or triggers etc.</remarks>
+        </member>
+        <member name="P:Web.API.Domain.Entity.BaseEntity.Modified">
+            <summary>Denotes the date and time of the last modification to the entity.</summary>
+            <value>Timestamp of last updation of the entity.</value>
+            <remarks>Value must be set manually using approaches like auditing or triggers etc.</remarks>
+        </member>
+        <member name="T:Web.API.Domain.Entity.User.User">
+            <summary>Data model that represents a user.</summary>
+            <seealso cref="T:Web.API.Domain.Entity.BaseEntity" />
+        </member>
+        <member name="P:Web.API.Domain.Entity.User.User.FirstName">
+            <summary>  Represents first name of the user.</summary>
+            <value>  First name of the user.</value>
+        </member>
+        <member name="P:Web.API.Domain.Entity.User.User.LastName">
+            <summary>  Represents last name of the user.</summary>
+            <value>  Last name of the user.</value>
+        </member>
+        <member name="P:Web.API.Domain.Entity.User.User.MiddleName">
+            <summary>  Represents middle name of the user.</summary>
+            <value>  Middle name of the user.</value>
+        </member>
+        <member name="P:Web.API.Domain.Entity.User.User.Username">
+            <summary>Represents login username for the user.</summary>
+            <value>The username for login.</value>
+            <remarks>The <c>Username</c> property has a max length of <c>25</c> characters.</remarks>
+        </member>
+        <member name="P:Web.API.Domain.Entity.User.User.Password">
+            <summary>  Represents the login password for the user.</summary>
+            <value>The password for login.</value>
+        </member>
+    </members>
+</doc>
