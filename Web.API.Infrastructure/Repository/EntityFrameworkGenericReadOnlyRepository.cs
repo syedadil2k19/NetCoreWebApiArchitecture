@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -9,14 +10,16 @@ using Web.API.Application.Interface.Repository;
 namespace Web.API.Infrastructure.Repository
 {
     /// <inheritdoc/>
-    class EntityFrameworkGenericReadOnlyRepository<TContext> : IGenericReadOnlyRepository
+    public class EntityFrameworkGenericReadOnlyRepository<TContext> : IGenericReadOnlyRepository where TContext : DbContext
     {
         public EntityFrameworkGenericReadOnlyRepository(TContext mContext)
         {
-            Context = mContext;
+            context = mContext;
         }
-        
-        protected readonly TContext Context;
+
+        private readonly TContext context;
+
+        protected TContext Context => context;
 
         protected virtual IQueryable<TEntity> GetQueryable<TEntity>(
             Expression<Func<TEntity, bool>> filter,
