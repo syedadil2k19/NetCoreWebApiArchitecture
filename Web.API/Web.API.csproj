@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Web.API.Domain\Web.API.Domain.csproj" />
+    <ProjectReference Include="..\Web.API.Application\Web.API.Application.csproj" />
     <ProjectReference Include="..\Web.API.Infrastructure\Web.API.Infrastructure.csproj" />
   </ItemGroup>
 
