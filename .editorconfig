@@ -1,0 +1,10 @@
+﻿[*.cs]
+
+# ClassDocumentationHeader: The class must have a documentation header.
+dotnet_diagnostic.ClassDocumentationHeader.severity = suggestion
+
+# MethodDocumentationHeader: The method must have a documentation header.
+dotnet_diagnostic.MethodDocumentationHeader.severity = suggestion
+
+# ConstructorDocumentationHeader: The constructor must have a documentation header.
+dotnet_diagnostic.ConstructorDocumentationHeader.severity = suggestion
