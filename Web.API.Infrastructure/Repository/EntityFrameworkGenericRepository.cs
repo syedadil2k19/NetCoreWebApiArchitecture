@@ -12,27 +12,28 @@ namespace Web.API.Infrastructure.Repository
 
         public void Create<TEntity>(TEntity entity) where TEntity : class
         {
-            throw new NotImplementedException();
+            Context.Set<TEntity>().Add(entity);
         }
 
         public void Delete<TEntity>(object id) where TEntity : class
         {
-            throw new NotImplementedException();
+            var entityToRemove = Context.Set<TEntity>().Find(id);
+            Delete(entityToRemove);
         }
 
         public void Delete<TEntity>(TEntity entity) where TEntity : class
         {
-            throw new NotImplementedException();
+            Context.Set<TEntity>().Remove(entity);
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            Context.SaveChanges();
         }
 
         public void SaveAsync()
         {
-            throw new NotImplementedException();
+            Context.SaveChangesAsync();
         }
     }
 }
