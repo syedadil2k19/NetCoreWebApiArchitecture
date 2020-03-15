@@ -23,7 +23,10 @@ namespace Web.API.Infrastructure.Repository
 
         public void Delete<TEntity>(TEntity entity) where TEntity : class
         {
-            Context.Set<TEntity>().Remove(entity);
+            var dbSet = Context.Set<TEntity>();
+            if (Context.Entry(entity).State == EntityState.Detached)
+                dbSet.Attach(entity);
+            dbSet.Remove(entity);
         }
 
         public void Save()
