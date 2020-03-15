@@ -24,5 +24,8 @@
             By convention, this creates a database table named "Users"
             </summary>
         </member>
+        <member name="T:Web.API.Infrastructure.Repository.EntityFrameworkGenericReadOnlyRepository`1">
+            <inheritdoc/>
+        </member>
     </members>
 </doc>

@@ -10,8 +10,8 @@ using Web.API.Infrastructure;
 namespace Web.API.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20200311095400_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200314140523_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
