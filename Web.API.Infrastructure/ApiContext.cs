@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Web.API.Domain.Entity;
 using Web.API.Domain.Entity.User;
 
 namespace Web.API.Infrastructure
@@ -23,5 +26,37 @@ namespace Web.API.Infrastructure
         /// By convention, this creates a database table named "Users"
         /// </summary>
         public DbSet<User> Users { get; set; }
+
+        public override int SaveChanges()
+        {
+            Audit();
+            return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            Audit();
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        private void Audit()
+        {
+            foreach(var entry in ChangeTracker.Entries())
+            {
+                if(entry.Entity is BaseEntity
+                    && entry.State == EntityState.Added || entry.State == EntityState.Modified)
+                {
+                    if (entry.State == EntityState.Added)
+                    {
+                        ((BaseEntity)entry.Entity).Created = DateTime.UtcNow;
+                        ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                    }
+                    else if (entry.State == EntityState.Modified)
+                    {
+                        ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                    }
+                }
+            }
+        }
     }
 }
