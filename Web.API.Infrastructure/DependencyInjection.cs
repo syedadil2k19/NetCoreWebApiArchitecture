@@ -19,8 +19,8 @@ namespace Web.API.Infrastructure
                 options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                 builder => builder.MigrationsAssembly("Web.API")));
 
-            services.TryAdd(ServiceDescriptor.Scoped(typeof(IGenericReadOnlyRepository), typeof(EntityFrameworkGenericReadOnlyRepository<>)));
-            services.TryAdd(ServiceDescriptor.Scoped(typeof(IGenericRepository), typeof(EntityFrameworkGenericRepository<>)));
+            services.TryAdd(ServiceDescriptor.Scoped(typeof(IGenericReadOnlyRepository), typeof(EntityFrameworkGenericReadOnlyRepository<ApiContext>)));
+            services.TryAdd(ServiceDescriptor.Scoped(typeof(IGenericRepository), typeof(EntityFrameworkGenericRepository<ApiContext>)));
 
             return services;
         }
